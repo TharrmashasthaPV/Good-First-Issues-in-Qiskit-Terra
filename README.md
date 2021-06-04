@@ -51,6 +51,7 @@ We also worked on enabling this feature on registerless circuits.
 
 ### 2. Issues in visualizion, testing and documentation.
 In visualization, testing and documentation, we worked on various relatively independent issues, although we focused more on the issues relating to bugs in visualization. For most of the issues, we only neede to do some addition and/or modification of code in their corresponding classes.
+
 ####2.1 Issues related to text drawer
 We worked on and fixed three issues that related to the text drawer. The first issue ([#6290](https://github.com/Qiskit/qiskit-terra/pull/6290)) was that the text drawings of the classical conditions when ```cregbundle``` was set to ```False``` was inconsistent with the other two drawers. While the latex and MPL drawers drew classical control as bullets, they were drawn as boxes in the text drawer. While resolving this issue, we found a related issue in the text drawer that when ```cregbundle``` is set to ```False``` and ```reverse_bits``` is set to ```True```, the ordering of the bullets of classical conditions were incorrect. We fixed these bugs in ([#6370](https://github.com/Qiskit/qiskit-terra/issues/6370)).
 We also fixed an issue of text drawer ([#6178](https://github.com/Qiskit/qiskit-terra/pull/6178)) in which when custom instructions are added to a circuit using arbitrary qubit and classical bit inputs, the drawer drew them incorrectly. This issue was fixed in ([#6242](https://github.com/Qiskit/qiskit-terra/pull/6242))
