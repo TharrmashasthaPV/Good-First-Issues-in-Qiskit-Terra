@@ -21,7 +21,8 @@ Our work primarily comprises of two parts. In the first part, we worked on intro
     - MPL drawer support for complex custom instructions. ([#3006](https://github.com/Qiskit/qiskit-terra/issues/3006), [#3201](https://github.com/Qiskit/qiskit-terra/issues/3201))
     - Testing Latex drawer using binder. ([#6371](https://github.com/Qiskit/qiskit-terra/issues/6371))
     - Unroller raises unclear error when reaching a node without a definition. ([#5840](https://github.com/Qiskit/qiskit-terra/issues/5840))
-Below, we provide the details of issues we worked to fix.
+
+Below, we provide more details on the issues we worked to fix.
 
 ### 1. Classical conditioning of gates on single bits
 Our primary aim of this sub-project was to introduce the feature that enables users to condition gates on individual classical bits. The main challenge was to introduce this feature while also ensuring that the number of functions that break due to this addition is minimal. We managed to make this addition while breaking a handful of functions. The functions that were broken are mentioned in [#6475](https://github.com/Qiskit/qiskit-terra/issues/6475) and are as follows:
