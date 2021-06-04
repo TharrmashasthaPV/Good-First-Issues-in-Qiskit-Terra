@@ -1,5 +1,5 @@
-# Good First Issues in Qiskit Terra - Qiskit Mentorship 2021
-We present here a detailed report on the work that was done in the Qiskit mentorship project titled "Good First Issues in Qiskit Terra". The project was under the mentoring of Dr.Luciano Bello.
+# Good First Issues in Qiskit Terra - Qiskit Advocate Mentorship 2021
+We present here a detailed report on the work that was done in the Qiskit advocate mentorship project titled "Good First Issues in Qiskit Terra". The project was under the mentoring of Dr.Luciano Bello.
 
 ### Goal of the project
 The goal of this project was to fix good first GitHub issues of Qiskit Terra.
