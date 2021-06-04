@@ -35,6 +35,7 @@ Our primary aim of this sub-project was to introduce the feature that enables us
 - ```_check_wires_list()``` and ```substitute_node_with_dag()``` methods in ```qiskit/dagcircuit/dagcircuit.py``` break.
 - ```_is_same_c_conf()``` method in ```ForwardMatch``` and ```BackwardMatch``` classes in ```qiskit/transpiler/passes/optimization/template_matching``` breaks.
 - ```run()``` method in ```ConsolidateBlocks``` class in ```qiskit/transpiler/passes/optimization``` breaks.
+
 By the end of the project, we fixed all three drawers ([#6261](https://github.com/Qiskit/qiskit-terra/pull/6261), [#6248](https://github.com/Qiskit/qiskit-terra/pull/6248), [#6259](https://github.com/Qiskit/qiskit-terra/pull/6259)) and the ```qc.depth()``` function ([#6476](https://github.com/Qiskit/qiskit-terra/pull/6476)). As for the other issues, we are actively working on fixing them.
 
 On introducing this feature, the users can now condition gates on classical bits. As an example, Qiskit terra now supports conditioning gates like as below:
@@ -51,10 +52,10 @@ circuit.h(q[2]).c_if(c[0], 1)
 We also worked on enabling this feature on registerless circuits.
 
 ### 2. Issues in visualizion, testing and documentation.
-In visualization, testing and documentation, we worked on various relatively independent issues, although we focused more on the issues relating to bugs in visualization. For most of the issues, we only neede to do some addition and/or modification of code in their corresponding classes.
+In visualization, testing and documentation, we worked on various relatively independent issues, although we focused more on the issues relating to bugs in visualization. For most of the issues, we only needed to do some addition and/or modification of code in their corresponding classes.
 
 #### 2.1 Issues related to text drawer
-We worked on and fixed three issues that related to the text drawer. The first issue ([#6290](https://github.com/Qiskit/qiskit-terra/pull/6290)) was that the text drawings of the classical conditions when ```cregbundle``` was set to ```False``` was inconsistent with the other two drawers. While the latex and MPL drawers drew classical control as bullets, they were drawn as boxes in the text drawer. While resolving this issue, we found a related issue in the text drawer that when ```cregbundle``` is set to ```False``` and ```reverse_bits``` is set to ```True```, the ordering of the bullets of classical conditions were incorrect. We fixed these bugs in [#6370](https://github.com/Qiskit/qiskit-terra/issues/6370).
+We worked on and fixed three issues that related to the text drawer. The first issue ([#6290](https://github.com/Qiskit/qiskit-terra/pull/6290)) was that the text drawings of the classical conditions when ```cregbundle``` was set to ```False``` was inconsistent with the other two drawers. While the latex and MPL drawers drew classical control as bullets, the conditions were drawn as boxes in the text drawer. While resolving this issue, we found a related issue in the text drawer that when ```cregbundle``` is set to ```False``` and ```reverse_bits``` is set to ```True```, the ordering of the bullets of classical conditions were incorrect. We fixed these bugs in [#6370](https://github.com/Qiskit/qiskit-terra/issues/6370).
 We also fixed an issue of text drawer ([#6178](https://github.com/Qiskit/qiskit-terra/pull/6178)) in which when custom instructions are added to a circuit using arbitrary qubit and classical bit inputs, the drawer drew them incorrectly. This issue was fixed in [#6242](https://github.com/Qiskit/qiskit-terra/pull/6242).
 
 #### 2.2 Issues related to MPL drawer
@@ -66,8 +67,9 @@ One other issue on latex drawer we worked on was the issue of missing active wir
 
 #### 2.4 Testing and documentation
 As far as the testing is concerned, apart from fixing the above issues, we also added various test to avoid unwanted effects on the fixed elements due to changes in code at a later point of time.
-Along with this, we also tried to port the latex text to a binder setup. Currently, the latex tests are performed by first generating the latex source code and then verifying it with the reference code. However, it is hard to detect visual irregularities if any. So, we worked on performing latex tests in binder, similar to how the current MPL drawer tests are performed ([#4544](https://github.com/Qiskit/qiskit-terra/pull/4544)). We were able to do the same in [#6450](https://github.com/Qiskit/qiskit-terra/pull/6450). This now allows for a more visual way of testing.
-We also worked on a small documentation issue in which an unclear message was output when an unroller reaches a node with no definition ([#5840](https://github.com/Qiskit/qiskit-terra/issues/5840)). The fix was simple ([6235](https://github.com/Qiskit/qiskit-terra/pull/6235)). We updated the method to output an error message that is more comprehensible to the user.
+Along with this, we also tried to port the latex drawer tests to a binder setup. Currently, the latex drawer tests are performed by first generating the latex source code and then verifying it with the reference code. However, it is hard to detect visual irregularities if any. So, we worked on performing latex drawer tests in binder, similar to how the current MPL drawer tests are performed ([#4544](https://github.com/Qiskit/qiskit-terra/pull/4544)). We were able to do the same in [#6450](https://github.com/Qiskit/qiskit-terra/pull/6450). This now allows for a more visual way of testing.
+
+We also worked on a small documentation issue in which an unclear message was output when an unroller reaches a node with no definition ([#5840](https://github.com/Qiskit/qiskit-terra/issues/5840)). The fix was simple ([6235](https://github.com/Qiskit/qiskit-terra/pull/6235)) in which we updated the method to output an error message that is more comprehensible to the user.
 
 ### Project statistics
 We present here some statistics of our project that we found to be interesting.
