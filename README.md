@@ -68,4 +68,15 @@ As far as the testing is concerned, apart from fixing the above issues, we also 
 Along with this, we also tried to port the latex text to a binder setup. Currently, the latex tests are performed by first generating the latex source code and then verifying it with the reference code. However, it is hard to detect visual irregularities if any. So, we worked on performing latex tests in binder, similar to how the current MPL drawer tests are performed ([#4544](https://github.com/Qiskit/qiskit-terra/pull/4544)). We were able to do the same in [#6450](https://github.com/Qiskit/qiskit-terra/pull/6450). This now allows for a more visual way of testing.
 We also worked on a small documentation issue in which an unclear message was output when an unroller reaches a node with no definition ([#5840](https://github.com/Qiskit/qiskit-terra/issues/5840)). The fix was simple ([6235](https://github.com/Qiskit/qiskit-terra/pull/6235)). We updated the method to output an error message that is more comprehensible to the user.
 
+### Project statistics
+We present here some statistics of our project that we found to be interesting.
+- Total number of issues addressed and/or closed : 15
+- Total number of new issues created : 5
+- Total number of completed PRs made during this time : 15
+    - Number of PRs that were merged       : 9
+    - Number of PRs in the review pipeline : 6
+- Month of opening of the oldest issue we worked on : Oct 2018 (Pretty old!)
+- Month of opening of the latest issue we worked on : May 2021
 
+#### Acknowledgements
+I learnt a varied lot of things in the duration of this project, ranging from the written norms of python to unwritten courtesies of the open source community. Working on this project with Lucianno was a lot of fun and equally educational. His mentoring thoughout the project was amazing. A big thanks to Luciano for all his support. I would also like to thank Kevin Krushlin for his support while we working on the classical conditioning sub-project and would like to thank Edwin Navarro for helping me in fixes relating to the drawers.
