@@ -78,5 +78,8 @@ We present here some statistics of our project that we found to be interesting.
 - Month of opening of the oldest issue we worked on : Oct 2018 (Pretty old!)
 - Month of opening of the latest issue we worked on : May 2021
 
+The link to a short recording in which we explain the details of this project more visually can be found [here](https://github.com/TharrmashasthaPV/Good-First-Issues-in-Qiskit-Terra/blob/main/Good%20First%20Issues%20in%20Qiskit%20Terra%20-%20Presentation.avi) and the slides used in the recording can be found [here](https://github.com/TharrmashasthaPV/Good-First-Issues-in-Qiskit-Terra/blob/main/Good%20First%20Issues%20in%20Qiskit%20Terra%20-%20Slides.pdf).
+Even though the project has come to an end, the project has ensured that my contributions to the Qiskit community woud hardly cease.
+
 #### Acknowledgements
 I learnt a varied lot of things in the duration of this project, ranging from the written norms of python to unwritten courtesies of the open source community. Working on this project with Lucianno was a lot of fun and equally educational. His mentoring thoughout the project was amazing. A big thanks to Luciano for all his support. I would also like to thank Kevin Krushlin for his support in the classical conditioning sub-project and would like to thank Edwin Navarro for helping me in fixes relating to the drawers.
