@@ -21,3 +21,30 @@ Our work primarily comprises of two parts. In the first part, we worked on intro
     - MPL drawer support for complex custom instructions. ([#3006](https://github.com/Qiskit/qiskit-terra/issues/3006), [#3201](https://github.com/Qiskit/qiskit-terra/issues/3201))
     - Testing Latex drawer using binder. ([#6371](https://github.com/Qiskit/qiskit-terra/issues/6371))
     - Unroller raises unclear error when reaching a node without a definition. ([#5840](https://github.com/Qiskit/qiskit-terra/issues/5840))
+Below, we provide the details of issues we worked to fix.
+
+### 1. Classical conditioning of gates on single bits
+Our primary aim of this sub-project was to introduce the feature that enables users to condition gates on individual classical bits. The main challenge was to introduce this feature while also ensuring that the number of functions that break due to this addition is minimal. We managed to make this addition while breaking a handful of functions. The functions that were broken are mentioned in ([#6475](https://github.com/Qiskit/qiskit-terra/issues/6475)) and are as follows:
+- All the drawers break when trying to draw a circuit that contains gates with classical conditioning on a single cbit.
+- ```qc.qasm()``` breaks when circuit qc contains gates with classical conditioning on a single cbit.
+- ```qc.depth()``` also breaks.
+- ```disassemble(qc_assembled)``` breaks where ```qc_assembled``` is an assembled ```Qobj```.
+- ```qc.num_connected_components``` breaks.
+- ```circuit_to_instruction(qc)``` breaks.
+- ```_check_wires_list()``` and ```substitute_node_with_dag()``` methods in ```qiskit/dagcircuit/dagcircuit.py``` break.
+- ```_is_same_c_conf()``` method in ```ForwardMatch``` and ```BackwardMatch``` classes in ```qiskit/transpiler/passes/optimization/template_matching``` breaks.
+- ```run()``` method in ```ConsolidateBlocks``` class in ```qiskit/transpiler/passes/optimization``` breaks.
+By the end of the project, we fixed all three drawers ([#6261](https://github.com/Qiskit/qiskit-terra/pull/6261), [#6248](https://github.com/Qiskit/qiskit-terra/pull/6248), [#6259](https://github.com/Qiskit/qiskit-terra/pull/6259)) and the ```qc.depth()``` function ([#6476](https://github.com/Qiskit/qiskit-terra/pull/6476)). As for the other issues, we are actively working on fixing them.
+
+On introducing this feature, the users can now condition gates on classical bits. As an example, the addition now supports conditioning gates like as below:
+```python
+q = QuantumRegister(3)
+c = ClassicalRegister(2)
+circuit = QuantumCircuit(q,c)
+circuit.h(q[0])
+circuit.measure(q[0], c[0])
+circuit.h(q[1]).c_if(c[0], True)
+circuit.h(q[2]).c_if(c[0], 1)
+```
+
+
