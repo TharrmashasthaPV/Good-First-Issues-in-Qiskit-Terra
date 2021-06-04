@@ -24,7 +24,7 @@ Our work primarily comprises of two parts. In the first part, we worked on intro
 Below, we provide the details of issues we worked to fix.
 
 ### 1. Classical conditioning of gates on single bits
-Our primary aim of this sub-project was to introduce the feature that enables users to condition gates on individual classical bits. The main challenge was to introduce this feature while also ensuring that the number of functions that break due to this addition is minimal. We managed to make this addition while breaking a handful of functions. The functions that were broken are mentioned in ([#6475](https://github.com/Qiskit/qiskit-terra/issues/6475)) and are as follows:
+Our primary aim of this sub-project was to introduce the feature that enables users to condition gates on individual classical bits. The main challenge was to introduce this feature while also ensuring that the number of functions that break due to this addition is minimal. We managed to make this addition while breaking a handful of functions. The functions that were broken are mentioned in [#6475](https://github.com/Qiskit/qiskit-terra/issues/6475) and are as follows:
 - All the drawers break when trying to draw a circuit that contains gates with classical conditioning on a single cbit.
 - ```qc.qasm()``` breaks when circuit qc contains gates with classical conditioning on a single cbit.
 - ```qc.depth()``` also breaks.
@@ -62,3 +62,10 @@ As for the issues in MPL drawer, we fixed an issue of drawer incorrectly drawing
 #### 2.3 Issues related to latex drawer
 Similar to the issue fixed in the MPL drawer, the latex drawer also incorrectly drew custom instructions that involved classical bits ([#3006](https://github.com/Qiskit/qiskit-terra/issues/3006), [#3202](https://github.com/Qiskit/qiskit-terra/issues/3202)). In this case too, the drawer ignored the classical bits of the custom instructions. In [#6240](https://github.com/Qiskit/qiskit-terra/pull/6240), we fixed this issue following similar style of the fix of MPL drawer.
 One other issue on latex drawer we worked on was the issue of missing active wire numberings ([#2092](https://github.com/Qiskit/qiskit-terra/issues/2092)). While the text and MPL drawers, numbered the active wires of a custom instruction, this was missing in the latex drawer. So we added numbering of active wires in latex drawer in [#6153](https://github.com/Qiskit/qiskit-terra/pull/6153).
+
+#### 2.4 Testing and documentation
+As far as the testing is concerned, apart from fixing the above issues, we also added various test to avoid unwanted effects on the fixed elements due to changes in code at a later point of time.
+Along with this, we also tried to port the latex text to a binder setup. Currently, the latex tests are performed by first generating the latex source code and then verifying it with the reference code. However, it is hard to detect visual irregularities if any. So, we worked on performing latex tests in binder, similar to how the current MPL drawer tests are performed ([#4544](https://github.com/Qiskit/qiskit-terra/pull/4544)). We were able to do the same in [#6450](https://github.com/Qiskit/qiskit-terra/pull/6450). This now allows for a more visual way of testing.
+We also worked on a small documentation issue in which an unclear message was output when an unroller reaches a node with no definition ([#5840](https://github.com/Qiskit/qiskit-terra/issues/5840)). The fix was simple ([6235](https://github.com/Qiskit/qiskit-terra/pull/6235)). We updated the method to output an error message that is more comprehensible to the user.
+
+
